@@ -370,7 +370,10 @@ bool stmmac_eee_init(struct stmmac_priv *priv)
 
 	if ((interface != PHY_INTERFACE_MODE_MII) &&
 	    (interface != PHY_INTERFACE_MODE_GMII) &&
-	    !phy_interface_mode_is_rgmii(interface))
+		(interface != PHY_INTERFACE_MODE_RGMII) &&
+		(interface != PHY_INTERFACE_MODE_RGMII_ID) &&
+		(interface != PHY_INTERFACE_MODE_RGMII_TXID) &&
+		(interface != PHY_INTERFACE_MODE_RGMII_RXID))
 		goto out;
 
 	/* Using PCS we cannot dial with the phy registers at this stage
